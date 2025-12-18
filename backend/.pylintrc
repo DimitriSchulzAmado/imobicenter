@@ -1,15 +1,6 @@
 [MAIN]
 
-disable=
-      c0114,  # missing-module-docstring
-      c0115,  # missing-class-docstring
-      c0116,  # missing-function-docstring
-      w0703,  # Catching too general exception Exception
-      C0209,  # consider-using-f-string
-      E0015,  # unrecognized-option
-      C0321,  # Multiple statements
-      W0719,  # broad-exception-raised
-      
+
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
 # only in one or another interpreter, leading to false positives when analysed.
@@ -92,7 +83,10 @@ limit-inference-results=100
 
 # List of plugins (as comma separated values of python module names) to load,
 # usually to register additional checkers.
-load-plugins=
+load-plugins=pylint_django
+
+# Django settings module
+django-settings-module=backend.settings
 
 # Pickle collected data for later comparisons.
 persistent=yes
@@ -334,10 +328,6 @@ max-returns=6
 # Maximum number of statements in function / method body.
 max-statements=50
 
-# Minimum number of public methods for a class (see R0903).
-min-public-methods=2
-
-
 [EXCEPTIONS]
 
 # Exceptions that will emit a warning when caught.
@@ -455,7 +445,16 @@ disable=raw-checker-failed,
         deprecated-pragma,
         use-symbolic-message-instead,
         use-implicit-booleaness-not-comparison-to-string,
-        use-implicit-booleaness-not-comparison-to-zero
+        use-implicit-booleaness-not-comparison-to-zero,
+        C0114,  # missing-module-docstring
+        C0115,  # missing-class-docstring
+        C0116,  # missing-function-docstring
+        W0703,  # Catching too general exception Exception
+        C0209,  # consider-using-f-string
+        E0015,  # unrecognized-option
+        C0321,  # Multiple statements
+        W0719,  # broad-exception-raised
+        E1101   # no-member
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
