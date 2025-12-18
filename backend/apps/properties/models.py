@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 
 
@@ -7,6 +9,7 @@ class PropertyType(models.TextChoices):
 
 
 class Property(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     address = models.CharField(max_length=300)
     cep = models.CharField(max_length=20)
     type = models.CharField(max_length=20, choices=PropertyType.choices)
